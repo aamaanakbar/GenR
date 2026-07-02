@@ -1,9 +1,5 @@
 # GenR: Generative Latent Inversion for Blind Face Restoration
 
-Official implementation of
-
-**GenR: Generative Latent Inversion for Blind Face Restoration**
-
 GenR is an unsupervised StyleGAN3-based image restoration framework that restores severely degraded facial images without requiring paired training data. The framework progressively optimizes the latent representation from **W → W+ → W++**, allowing the generator to first reconstruct global facial structure and then progressively recover fine details. A multiscale perceptual–structural objective further improves restoration quality under challenging degradations. :contentReference[oaicite:1]{index=1}
 
 ---
