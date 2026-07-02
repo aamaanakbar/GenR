@@ -1,4 +1,4 @@
-# GenR: Generative Latent Inversion for Blind Face Restoration
+# [GenR: Generative Latent Inversion for Blind Face Restoration](https://www.sciencedirect.com/science/article/pii/S016786552600142X)
 <p align="center">
   <img src="benchmark/DiffJPEG/ontop.png" alt="GenR Overview" width="900"/>
 </p>
