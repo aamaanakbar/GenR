@@ -67,9 +67,7 @@ pip install git+https://github.com/jwblangley/pytorch-fid.git
 mkdir pretrained_networks
 ```
 
-Download  Stylegan3 Pretrained models (As per dataset)
-
-[stylegan3 pretrained models](https://catalog.ngc.nvidia.com/orgs/nvidia/research/models/stylegan3/-/file-browser)
+Download [stylegan3 pretrained models](https://catalog.ngc.nvidia.com/orgs/nvidia/research/models/stylegan3/-/file-browser)   (ex. stylegan3-r-ffhqu-1024x1024.pkl)
 
 and place it inside
 
