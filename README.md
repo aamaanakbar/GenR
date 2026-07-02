@@ -1,28 +1,131 @@
+# GenR: Generative Latent Inversion for Blind Face Restoration
 
+Official implementation of
+
+**GenR: Generative Latent Inversion for Blind Face Restoration**
+
+GenR is an unsupervised StyleGAN3-based image restoration framework that restores severely degraded facial images without requiring paired training data. The framework progressively optimizes the latent representation from **W → W+ → W++**, allowing the generator to first reconstruct global facial structure and then progressively recover fine details. A multiscale perceptual–structural objective further improves restoration quality under challenging degradations. :contentReference[oaicite:1]{index=1}
+
+---
+
+## Features
+
+- StyleGAN3-based blind face restoration
+- Progressive latent optimization
+  - W space
+  - W+ space
+  - W++ space
+- Multi-start latent initialization
+- Multiscale perceptual–structural loss
+- Frequency-aware latent regularization
+- Symmetric LPIPS loss
+- Style Mixing
+- Supports multiple restoration tasks
+- Composite degradation restoration
+
+---
+
+## Supported Restoration Tasks
+
+GenR supports
+
+- Image Denoising
+- Image Super-Resolution
+- Image Inpainting
+- JPEG Artifact Removal
+- Composite Restoration
+
+
+
+
+---
 
 ## Installation
 
-1) First install the same environment as https://github.com/NVlabs/stylegan2-ada-pytorch.git. It is not essential for the custom cuda kernels to compile correctly, they just make things run ~30% faster.
+GenR follows the same software environment as StyleGAN2 ADA 
 
-2) Run `pip install tyro`. For running the evaluation you will also need to `pip install torchmetrics git+https://github.com/jwblangley/pytorch-fid.git`.
+### 1. Install StyleGAN Environment
 
-2) Download the pretrained StyleGAN3 model:
+First install the same environment as
 
-## Restoring images
+https://github.com/NVlabs/stylegan2-ada-pytorch
 
-To run the tasks presented in the paper, use:
+The custom CUDA kernels are optional but provide faster execution.
 
-```bash 
+---
+
+### 2. Install Dependencies
+
+```bash
+pip install tyro
+pip install torchmetrics
+pip install lpips
+pip install facenet-pytorch
+pip install pytorch-msssim
+pip install timm
+pip install git+https://github.com/jwblangley/pytorch-fid.git
+```
+
+---
+
+### 3. Download StyleGAN3 Model
+
+```bash
+mkdir pretrained_networks
+```
+
+Download
+
+```
+stylegan3-t-ffhq-1024x1024.pkl
+```
+
+and place it inside
+
+```
+pretrained_networks/
+```
+
+---
+
+
+## Running GenR
+
+Restore all images
+
+```bash
 python run.py --dataset_path datasets/samples
 ```
 
-Some sample images have already been provided in `datasets/samples`.
 
-## Other datasets
-First, download a pretrained StyleGAN2 generator for your dataset (.pkl), and pass it's path to the `--pkl_path` option.
-If the resolution of your data is different from 1024 you also need to set it using the `--resolution` option.
-This resolution does not need to match the pretrained generator's resolution; for best results pick a high resolution generator even if your images are smaller. 
 
-Finally, on datasets other than faces you may need to scale all learning rates up or down by a constant amount to compensate for the different scale of the latent space. For this you can use the CLI option `--global_lr_scale`.
 
-This is Code is inspired from  "Robust Unsupervised StyleGAN Image Restoration"
+
+---
+
+
+
+## Citation
+
+If you find this work useful, please cite
+
+```bibtex
+@article{ali2026genr,
+  title={GenR: Generative latent inversion for blind face restoration},
+  author={Ali, Akbar and Mastan, Indra Deep and Raman, Shanmuganathan},
+  journal={Pattern Recognition Letters},
+  year={2026},
+  publisher={Elsevier}
+}
+```
+
+---
+
+## Acknowledgements
+
+This repository is built upon
+
+- StyleGAN3
+- Robust Unsupervised StyleGAN Image Restoration (CVPR 2023)
+
+We thank the original authors for making their implementations publicly available.
